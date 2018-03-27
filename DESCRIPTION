@@ -1,0 +1,31 @@
+Package: pertinentR
+Type: Package
+Title: trivial utilities
+Version: 0.1.0
+Author: Saket Choudhary
+Maintainer: Saket Choudhary <saketkc@gmail.com>
+Description: Collection of trivial utility functions that I use for 
+    bioinformatic analysis.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Imports:
+    DESeq2,
+    RColorBrewer,
+    ggplot2,
+    BiocParallel,
+    pheatmap,
+    sva,
+    reshape2,
+    edgeR,
+    cowplot,
+    grid,
+    fdrtool,
+    limma,
+    ggrepel,
+    vsn,
+    clusterProfiler,
+    org.Hs.eg.db,
+    sva,
+    reshape2,
+    dplyr
