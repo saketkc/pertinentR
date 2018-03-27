@@ -1,0 +1,2 @@
+# pertinentR
+trivial R utils
