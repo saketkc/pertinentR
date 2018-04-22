@@ -1,2 +1,2 @@
 # pertinentR
-trivial R utils
+trivial R utils that I use across projects.
