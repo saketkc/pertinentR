@@ -28,4 +28,4 @@ Imports:
     sva,
     reshape2,
     dplyr
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1

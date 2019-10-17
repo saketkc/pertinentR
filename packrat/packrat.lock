@@ -137,8 +137,8 @@ Requires: bitops
 
 Package: RSQLite
 Source: CRAN
-Version: 2.0
-Hash: 9de2f4597b3bdf7da3c9689c217084bd
+Version: 2.1.0
+Hash: e809576190d70ba5c9d085b86b057e38
 Requires: BH, DBI, Rcpp, bit64, blob, memoise, pkgconfig, plogr
 
 Package: Rcpp
@@ -222,8 +222,8 @@ Hash: 76578c5f543a6ecbc1365d6445f9ebf7
 
 Package: bindrcpp
 Source: CRAN
-Version: 0.2
-Hash: b0f06c9a05938f13d119c8e93616dddd
+Version: 0.2.2
+Hash: f97e97075970836f25b6cb53b3a52c4f
 Requires: Rcpp, bindr, plogr
 
 Package: bit
@@ -252,6 +252,12 @@ Package: brew
 Source: CRAN
 Version: 1.0-6
 Hash: 931f9972deae0f205e1c78a51f33149b
+
+Package: caTools
+Source: CRAN
+Version: 1.17.1
+Hash: 97cb6f6293cd18d17df77a6383cc6763
+Requires: bitops
 
 Package: checkmate
 Source: CRAN
@@ -295,8 +301,8 @@ Hash: ff2840dd9b0d563fc80377a5a45510cd
 
 Package: curl
 Source: CRAN
-Version: 3.1
-Hash: 877149b42d479b93ab15d5cef46c0f1b
+Version: 3.2
+Hash: e3318ec2d42d15a38485bab047d114ba
 
 Package: data.table
 Source: CRAN
@@ -329,7 +335,7 @@ Hash: 1f202ebd812ac7192be3739245746a13
 Package: dplyr
 Source: CRAN
 Version: 0.7.4
-Hash: 2adb5f27868b71162128076e44a2a577
+Hash: cf677ec8dad7a45d1397dd7e72ef30c6
 Requires: BH, R6, Rcpp, assertthat, bindrcpp, glue, magrittr,
     pkgconfig, plogr, rlang, tibble
 
@@ -360,6 +366,11 @@ Source: Bioconductor
 Version: 1.4.1
 Hash: 340aceb82e826a578d31cb624ffc61aa
 Requires: BiocParallel, Rcpp, data.table, fastmatch, ggplot2, gridExtra
+
+Package: formatR
+Source: CRAN
+Version: 1.5
+Hash: 258cf79a8dbeedf1c981cdb53837d2af
 
 Package: futile.logger
 Source: CRAN
@@ -594,6 +605,12 @@ Version: 1.0.2
 Hash: 49286102a855640daaa38eafe8b1ec30
 Requires: assertthat, magrittr
 
+Package: profvis
+Source: CRAN
+Version: 0.3.6
+Hash: 84220302ced453f674aa84c404da03bd
+Requires: htmlwidgets, stringr
+
 Package: purrr
 Source: CRAN
 Version: 0.2.4
@@ -622,6 +639,13 @@ Package: rlang
 Source: CRAN
 Version: 0.2.0
 Hash: 647e2e50a72557d1a770dcd6701e562b
+
+Package: rmarkdown
+Source: CRAN
+Version: 1.9
+Hash: ab7f84e6f41ed8d8e8b9a2031cf631f8
+Requires: base64enc, evaluate, htmltools, jsonlite, knitr, mime,
+    rprojroot, stringr, yaml
 
 Package: roxygen2
 Source: CRAN
@@ -707,8 +731,8 @@ Hash: a2fe6a996668ee5850b7719f365e831b
 
 Package: viridis
 Source: CRAN
-Version: 0.5.0
-Hash: 4ea9217fe909e0a52d374e8cf69525a1
+Version: 0.5.1
+Hash: 39edaec2078b4fc928afb73cc1ce6625
 Requires: ggplot2, gridExtra, viridisLite
 
 Package: viridisLite
