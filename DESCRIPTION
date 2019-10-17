@@ -27,5 +27,6 @@ Imports:
     org.Hs.eg.db,
     sva,
     reshape2,
-    dplyr
+    dplyr,
+    riborex
 RoxygenNote: 6.1.1
