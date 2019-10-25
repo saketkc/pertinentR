@@ -28,5 +28,10 @@ Imports:
     sva,
     reshape2,
     dplyr,
-    riborex
+    riborex,
+    ggpubr,
+    FactoMineR,
+    factoextra,
+    topGO,
+    goseq
 RoxygenNote: 6.1.1

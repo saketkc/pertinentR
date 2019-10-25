@@ -39,3 +39,69 @@ clusterProfilerWriteGO <- function(ego, csvout, converter = EntrezToSymbolHuman)
     ego$geneID <- vapply(ego$geneID , paste, collapse = ", ", character(1L))
     write.csv(ego, csvout)
 }
+
+
+
+doTopGoAnalysis <- function(geneID2GO, interestingGenes, ontology="BP", universalGeneList="allInGO", topNodes=15){
+    if (universalGeneList == "allInGO"){
+        universalGeneList <- names(geneID2GO)
+    }
+
+    geneList <- factor(as.integer(universalGeneList %in% interestingGenes))
+    names(geneList) <- universalGeneList
+    GOdata <- new("topGOdata",
+                  ontology = ontology,
+                  allGenes = geneList,
+                  annot = annFUN.gene2GO,
+                  gene2GO = geneID2GO)
+    resultFisher <- runTest(GOdata,
+                            algorithm = "classic",
+                            statistic = "fisher")
+    resultKS <- runTest(GOdata,
+                        algorithm = "classic",
+                        statistic = "ks")
+    resultKS.elim <- runTest(GOdata,
+                             algorithm = "elim",
+                             statistic = "ks")
+    allRes <- GenTable(GOdata,
+                       classicFisher = resultFisher,
+                       classicKS = resultKS,
+                       elimKS = resultKS.elim,
+                       orderBy = "elimKS",
+                       ranksOf = "classicFisher",
+                       topNodes = topNodes)
+    return (as.data.frame(allRes))
+
+
+}
+
+
+barplotGOSeq <- function(df, showCategory=15){
+    df <- df[with(df, order(ratio, padj, decreasing = c(TRUE, FALSE))),]
+    df <- head(df, n=showCategory)
+    breaks <- round( c(0, 1/4, 2/4, 3/4, 1) * max(df[['ratio']]) , 2)
+    p_plot <- ggplot(df, aes_string(x="term", y="ratio", fill="padj")) +
+        geom_col() +
+        scale_y_continuous(expand=c(0, 0), breaks=breaks, limits=c(0, max(df[["ratio"]]+0.05))) +
+        scale_x_discrete(name='GO term') +
+        scale_fill_continuous(low="#00dbde", high="#FFF94C") +
+        theme(text=ggplot2::element_text(size=9)) +
+        coord_flip() +
+        theme_bw(base_size=9)
+    return(p_plot)
+}
+
+dotplotGOSeq <- function(df, showCategory=15){
+    df <- df[with(df, order(ratio, padj, decreasing = c(TRUE, FALSE))),]
+    df <- head(df, n=showCategory)
+    d_plot <- ggplot(df, aes_string(x="term",
+                                    y="ratio",
+                                    colour="padj",
+                                    size="numDEInCat")) +
+        geom_point() +
+        scale_color_gradient(low="#00dbde",
+                             high="#FFF94C") +
+        coord_flip() +
+        theme_bw(base_size=9)
+    return(d_plot)
+}

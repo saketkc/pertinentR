@@ -5,7 +5,6 @@ cbbPalette <- c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
 write_DESeq2_results <- function(df, results.dir, prefix){
     df<- as.data.frame(df)
     df <- df[order(df$padj),]
-    df$gene_name <- gene_annotations[rownames(df),]$gene_name
 
     df.sig <- subset(df, padj<0.05)
     df.sig.up <- subset(df.sig, log2FoldChange>0)
@@ -30,8 +29,8 @@ plotHeatMap <- function(rlogdist, filename=NULL){
     colors <- colorRampPalette( rev(brewer.pal(9, "Blues")) )(255)
     pheatmap(sampleDistMatrix,
              clustering_distance_rows=sampleDists,
-             cellwidth=10,
-             cellheight=10,
+             cellwidth=20,
+             cellheight=20,
              clustering_distance_cols=sampleDists,
              col=colors,)
     if (!is.null(filename)) {
